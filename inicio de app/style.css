@@ -1,0 +1,137 @@
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #sidebar {
+            width: 100%;
+            max-width: 300px;
+            background-color: #3498db;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+
+        #languageSelection {
+            padding: 20px;
+            margin-left: 320px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 36px;
+            color: #e74c3c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2, p {
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .language-dropdown {
+            cursor: pointer;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .language-list {
+            display: none;
+        }
+
+        .language-list a {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .language-list img {
+            margin-right: 10px;
+            max-width: 20px;
+        }
+
+        .levels-list {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .level-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .premium-link {
+            color: #fff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+        }
+.level-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .letter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .letter-button {
+            cursor: pointer;
+            background-color: #27ae60; /* Color verde esmeralda, puedes cambiarlo según tu preferencia */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .letter-button:hover {
+            background-color: #219350; /* Cambia el tono del color al pasar el ratón */
+        }
+
+        .word-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: none; /* Oculta las listas de palabras por defecto */
+        }
+
+        .word-list-item {
+            margin-bottom: 5px;
+        }
+    </style>

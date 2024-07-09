@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Plataforma Educativa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="C:\Users\User\Documents\Proyecto lingua\style.css">
+</head>
+<body>
+<div id="sidebar">
+    <a href="#" class="language-dropdown" onclick="toggleLanguageList()">IDIOMAS</a>
+    <div class="language-list">
+            <a href="#spanish" onclick="toggleLevelsList('spanish')"><img src="españa.png" alt="Spanish Flag"> Español</a>
+            <div class="levels-list" id="spanishLevels">
+                <a href="#" onclick="toggleLevelContent('spanish', 'A1')">A1</a>
+                <a href="#" onclick="toggleLevelContent('spanish', 'A2')">A2</a>
+                <a href="#" onclick="toggleLevelContent('spanish', 'B1')">B1</a>
+                <a href="#" onclick="toggleLevelContent('spanish', 'B2')">B2</a>
+                <a href="#" onclick="toggleLevelContent('spanish', 'C1')">C1</a>
+            </div>
+            <a href="#english" onclick="toggleLevelsList('english')"><img src="inglaterra.png" alt="English Flag"> Inglés</a>
+            <div class="levels-list" id="englishLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+  <a href="#portuguese" onclick="toggleLevelsList('portuguese')"><img src="brazil.png" alt="Portuguese Flag"> Portugués</a>
+            <div class="levels-list" id="portugueseLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+ <a href="#german" onclick="toggleLevelsList('german')"><img src="alemania.jfif" alt="German Flag"> Alemán</a>
+            <div class="levels-list" id="germanLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+            <a href="#hebrew" onclick="toggleLevelsList('hebrew')"><img src="israel.png" alt="Hebrew Flag"> Hebreo</a>
+            <div class="levels-list" id="hebrewLevels">
+                <a href="#">Principiante</a>
+                <a href="#">Principiante-Intermedio</a>
+                <a href="#">Intermedio</a>
+                <a href="#">Intermedio-Avanzado</a>
+            </div>
+            <a href="#chinese" onclick="toggleLevelsList('chinese')"><img src="china.jpg" alt="Chinese Flag"> Chino</a>
+            <div class="levels-list" id="chineseLevels">
+                 <a href="#">HSK1</a>
+                <a href="#">HSK2</a>
+                <a href="#">HSK3.1</a>
+                <a href="#">HSK3.2</a>
+                <a href="#">HSK4</a>
+            </div>
+            <a href="#japanese" onclick="toggleLevelsList('japanese')"><img src="japon.png" alt="Japanese Flag"> Japonés</a>
+            <div class="levels-list" id="japaneseLevels">
+                <a href="#">JLPT N5</a>
+                <a href="#">JLPT N4</a>
+                <a href="#">JLPT N3</a>
+            </div>
+            <a href="#french" onclick="toggleLevelsList('french')"><img src="francia.png" alt="French Flag"> Francés</a>
+            <div class="levels-list" id="frenchLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+            <a href="#italian" onclick="toggleLevelsList('italian')"><img src="italia.png" alt="Italian Flag"> Italiano</a>
+            <div class="levels-list" id="italianLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+            <a href="#russian" onclick="toggleLevelsList('russian')"><img src="rusia.png" alt="Russian Flag"> Ruso</a>
+            <div class="levels-list" id="russianLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+            <!-- Agrega más idiomas según sea necesario -->
+        </div>
+        <div>
+            <p class="premium-link" onclick="window.open('premium.html', '_blank')">¡Explora nuestra Certificación Premium!</p>
+        </div>
+    </div>
+
+    <section id="languageSelection">
+        <h1>Lingua Play Zone </h1>
+         <div class="level-content" id="spanishA1Content">
+            <h3>Nivel A1 de Español: Fundamentos Básicos</h3>
+            <p>¡Aquí te sumergirás en un mundo de información introductoria y básica que hará que tu aprendizaje sea emocionante y efectivo. ¡Descubre las bases de este hermoso idioma de manera cautivadora!</p>
+            <div>
+                <h3>1. El Abecedario</h3>
+                <!-- Botones desplegables para cada letra del abecedario -->
+                <div class="letter-buttons">
+                    <button class="letter-button" onclick="toggleWordList('A')">A</button>
+                    <button class="letter-button" onclick="toggleWordList('B')">B</button>
+                    <button class="letter-button" onclick="toggleWordList('C')">C</button>
+                    <button class="letter-button" onclick="toggleWordList('D')">D</button>
+                    <button class="letter-button" onclick="toggleWordList('E')">E</button>
+                    <button class="letter-button" onclick="toggleWordList('F')">F</button>
+                    <button class="letter-button" onclick="toggleWordList('G')">G</button>
+                    <button class="letter-button" onclick="toggleWordList('H')">H</button>
+                    <button class="letter-button" onclick="toggleWordList('I')">I</button>
+                    <button class="letter-button" onclick="toggleWordList('J')">J</button>
+                    <button class="letter-button" onclick="toggleWordList('K')">K</button>
+                    <button class="letter-button" onclick="toggleWordList('L')">L</button>
+                    <button class="letter-button" onclick="toggleWordList('M')">M</button>
+                    <button class="letter-button" onclick="toggleWordList('N')">N</button>
+                    <button class="letter-button" onclick="toggleWordList('O')">O</button>
+                    <button class="letter-button" onclick="toggleWordList('P')">P</button>
+                    <button class="letter-button" onclick="toggleWordList('Q')">Q</button>
+                    <button class="letter-button" onclick="toggleWordList('R')">R</button>
+                    <button class="letter-button" onclick="toggleWordList('S')">S</button>
+                    <button class="letter-button" onclick="toggleWordList('T')">T</button>
+                    <button class="letter-button" onclick="toggleWordList('U')">U</button>
+                    <button class="letter-button" onclick="toggleWordList('V')">V</button>
+                    <button class="letter-button" onclick="toggleWordList('W')">W</button>
+                    <button class="letter-button" onclick="toggleWordList('X')">X</button>
+                    <button class="letter-button" onclick="toggleWordList('Y')">Y</button>
+                    <button class="letter-button" onclick="toggleWordList('Z')">Z</button>
+                </div>
+ 
+                <!-- Lista de palabras para cada letra -->
+                <ul class="word-list" id="wordListA">
+                    <li class="word-list-item">Amar</li>
+                    <li class="word-list-item">Armar</li>
+                    <!-- Agrega más palabras según sea necesario -->
+                </ul>
+                <ul class="word-list" id="wordListB">
+                    <li class="word-list-item">Palabra 1B</li>
+                    <li class="word-list-item">Palabra 2B</li>
+                    <!-- Agrega más palabras según sea necesario -->
+                </ul>
+                <!-- Repite esta estructura para cada letra y palabra -->
+            </div>
+        </div>
+
+        <div class="level-content" id="spanishA2Content">
+
+            <!-- Contenido para el nivel A2 de español -->
+            <h2>Nivel A2</h2>
+            <p>En el nivel A2 de español, profundizaremos en temas básicos. ¡Vamos a aprender juntos!</p>
+        </div>
+        <!-- Repite esta estructura para cada nivel y idioma -->
+    </section>
+    
+
+    <footer>
+        <p>&copy; 2024 Tu Plataforma Educativa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+       function toggleWordList(letter) {
+            // Oculta todas las listas de palabras
+            var allWordLists = document.querySelectorAll('.word-list');
+            allWordLists.forEach(function (list) {
+                list.style.display = 'none';
+            });
+
+            // Muestra la lista de palabras correspondiente a la letra actual
+            var wordList = document.getElementById('wordList' + letter);
+            if (wordList) {
+                wordList.style.display = 'block';
+         }
+        }
+        function toggleLanguageList() {
+            var languageList = document.querySelector('.language-list');
+            languageList.style.display = (languageList.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function toggleLevelsList(language) {
+            var levelsList = document.getElementById(language + 'Levels');
+            levelsList.style.display = (levelsList.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function toggleLevelContent(language, level) {
+            // Oculta todos los contenidos de nivel
+            var allLevelContents = document.querySelectorAll('.level-content');
+            allLevelContents.forEach(function(content) {
+                content.style.display = 'none';
+            });
+
+            // Muestra el contenido del nivel seleccionado
+            var selectedLevelContent = document.getElementById(language + level + 'Content');
+            if (selectedLevelContent) {
+                selectedLevelContent.style.display = 'block';
+         
+function toggleWordList(letter) {
+            var wordList = document.getElementById('wordList' + letter);
+            wordList.style.display = (wordList.style.display === 'block') ? 'none' : 'block';
+           }
+        }
+        
+        function goToNextActivity() {
+            // Oculta todas las actividades del abecedario
+            var allLevelContents = document.querySelectorAll('.level-content');
+            allLevelContents.forEach(function(content) {
+                content.style.display = 'none';
+            });
+
+            // Muestra la siguiente actividad (puedes ajustar esto según tu estructura)
+            var nextActivity = document.getElementById('nextActivityContent');
+            if (nextActivity) {
+                nextActivity.style.display = 'block';
+            }
+
+            // Oculta la flecha después de avanzar
+            var nextArrow = document.getElementById('nextArrow');
+            if (nextArrow) {
+                nextArrow.style.display = 'none';
+            }
+        }
+    </script>
+
+    <!-- Flecha Unicode para la siguiente actividad -->
+    <div id="nextArrow" onclick="goToNextActivity()">➡</div>
+</body>
+
+</html>.

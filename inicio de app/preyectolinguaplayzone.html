@@ -1,0 +1,549 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tu Plataforma Educativa</title>
+    <link rel="stylesheet" href="styles.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Roboto', sans-serif;
+            background-color: #f4f4f4;
+            color: #333;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+
+        #sidebar {
+            width: 100%;
+            max-width: 300px;
+            background-color: #3498db;
+            padding: 20px;
+            box-shadow: 2px 0 5px rgba(0, 0, 0, 0.1);
+            z-index: 2;
+            position: fixed;
+            top: 0;
+            bottom: 0;
+            overflow-y: auto;
+        }
+
+        #languageSelection {
+            padding: 20px;
+            margin-left: 320px;
+            flex: 1;
+            box-sizing: border-box;
+        }
+
+        h1 {
+            margin-top: 50px;
+            margin-bottom: 20px;
+            text-align: center;
+            font-size: 36px;
+            color: #e74c3c;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+        }
+
+        h2, p {
+            margin: 0;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+        }
+
+        .language-dropdown {
+            cursor: pointer;
+            color: #fff;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .language-list {
+            display: none;
+        }
+
+        .language-list a {
+            text-decoration: none;
+            color: #fff;
+            display: flex;
+            align-items: center;
+            margin-bottom: 5px;
+            border-bottom: 1px solid #fff;
+            padding-bottom: 5px;
+        }
+
+        .language-list img {
+            margin-right: 10px;
+            max-width: 20px;
+        }
+
+        .levels-list {
+            display: none;
+            padding-left: 20px;
+        }
+
+        .level-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .premium-link {
+            color: #fff;
+            text-decoration: underline;
+            cursor: pointer;
+        }
+
+        footer {
+            text-align: center;
+            padding: 10px;
+        }
+.level-content {
+            display: none;
+            padding: 20px;
+        }
+
+        .letter-buttons {
+            display: flex;
+            flex-wrap: wrap;
+            margin-bottom: 15px;
+        }
+
+        .letter-button {
+            cursor: pointer;
+            background-color: #27ae60; /* Color verde esmeralda, puedes cambiarlo según tu preferencia */
+            color: #fff;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 5px;
+            margin-right: 10px;
+            margin-bottom: 10px;
+            transition: background-color 0.3s;
+        }
+
+        .letter-button:hover {
+            background-color: #219350; /* Cambia el tono del color al pasar el ratón */
+        }
+
+        .word-list {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            display: none; /* Oculta las listas de palabras por defecto */
+        }
+
+        .word-list-item {
+            margin-bottom: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div id="sidebar">
+        <a href="#" class="language-dropdown" onclick="toggleLanguageList()">IDIOMAS</a>
+        <div class="language-list">
+            <a href="#spanish" onclick="toggleLevelsList('spanish')"><img src="Colombia.png" alt="Spanish Flag"> Español</a>
+            <div class="levels-list" id="spanishLevels">
+                <a href="#" onclick="toggleLevelContent('spanish', 'A1')">A1</a>
+                <a href="#" onclick="toggleLevelContent('spanish', 'A2')">A2</a>
+                <a href="#" onclick="toggleLevelContent('spanish', 'B1')">B1</a>
+                <a href="#" onclick="toggleLevelContent('spanish', 'B2')">B2</a>
+                <a href="#" onclick="toggleLevelContent('spanish', 'C1')">C1</a>
+            </div>
+            <a href="#english" onclick="toggleLevelsList('english')"><img src="inglaterra.png" alt="English Flag"> Inglés</a>
+            <div class="levels-list" id="englishLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+  <a href="#portuguese" onclick="toggleLevelsList('portuguese')"><img src="brazil.png" alt="Portuguese Flag"> Portugués</a>
+            <div class="levels-list" id="portugueseLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+ <a href="#german" onclick="toggleLevelsList('german')"><img src="alemania.jfif" alt="German Flag"> Alemán</a>
+            <div class="levels-list" id="germanLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+            <a href="#hebrew" onclick="toggleLevelsList('hebrew')"><img src="israel.png" alt="Hebrew Flag"> Hebreo</a>
+            <div class="levels-list" id="hebrewLevels">
+                <a href="#">Principiante</a>
+                <a href="#">Principiante-Intermedio</a>
+                <a href="#">Intermedio</a>
+                <a href="#">Intermedio-Avanzado</a>
+            </div>
+            <a href="#chinese" onclick="toggleLevelsList('chinese')"><img src="china.jpg" alt="Chinese Flag"> Chino</a>
+            <div class="levels-list" id="chineseLevels">
+                 <a href="#">HSK1</a>
+                <a href="#">HSK2</a>
+                <a href="#">HSK3.1</a>
+                <a href="#">HSK3.2</a>
+                <a href="#">HSK4</a>
+            </div>
+            <a href="#japanese" onclick="toggleLevelsList('japanese')"><img src="japon.png" alt="Japanese Flag"> Japonés</a>
+            <div class="levels-list" id="japaneseLevels">
+                <a href="#">JLPT N5</a>
+                <a href="#">JLPT N4</a>
+                <a href="#">JLPT N3</a>
+            </div>
+            <a href="#french" onclick="toggleLevelsList('french')"><img src="francia.png" alt="French Flag"> Francés</a>
+            <div class="levels-list" id="frenchLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+            <a href="#italian" onclick="toggleLevelsList('italian')"><img src="italia.png" alt="Italian Flag"> Italiano</a>
+            <div class="levels-list" id="italianLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+            <a href="#russian" onclick="toggleLevelsList('russian')"><img src="rusia.png" alt="Russian Flag"> Ruso</a>
+            <div class="levels-list" id="russianLevels">
+                <a href="#">A1</a>
+                <a href="#">A2</a>
+                <a href="#">B1</a>
+                <a href="#">B2</a>
+                <a href="#">C1</a>
+            </div>
+            <!-- Agrega más idiomas según sea necesario -->
+        </div>
+        <div>
+            <p class="premium-link" onclick="window.open('premium.html', '_blank')">¡Explora nuestra Certificación Premium!</p>
+        </div>
+    </div>
+
+    <section id="languageSelection">
+        <h1>Lingua Play Zone </h1>
+         <div class="level-content" id="spanishA1Content">
+            <h3>Nivel A1 de Español: Fundamentos Básicos</h3>
+            <p>¡Aquí te sumergirás en un mundo de información introductoria y básica que hará que tu aprendizaje sea emocionante y efectivo. ¡Descubre las bases de este hermoso idioma de manera cautivadora!</p>
+            <div>
+                <h3>1. El Abecedario</h3>
+                <!-- Botones desplegables para cada letra del abecedario -->
+                <div class="letter-buttons">
+                    <button class="letter-button" onclick="toggleWordList('A')">A</button>
+                    <button class="letter-button" onclick="toggleWordList('B')">B</button>
+                    <button class="letter-button" onclick="toggleWordList('C')">C</button>
+                    <button class="letter-button" onclick="toggleWordList('D')">D</button>
+                    <button class="letter-button" onclick="toggleWordList('E')">E</button>
+                    <button class="letter-button" onclick="toggleWordList('F')">F</button>
+                    <button class="letter-button" onclick="toggleWordList('G')">G</button>
+                    <button class="letter-button" onclick="toggleWordList('H')">H</button>
+                    <button class="letter-button" onclick="toggleWordList('I')">I</button>
+                    <button class="letter-button" onclick="toggleWordList('J')">J</button>
+                    <button class="letter-button" onclick="toggleWordList('K')">K</button>
+                    <button class="letter-button" onclick="toggleWordList('L')">L</button>
+                    <button class="letter-button" onclick="toggleWordList('M')">M</button>
+                    <button class="letter-button" onclick="toggleWordList('N')">N</button>
+                    <button class="letter-button" onclick="toggleWordList('O')">O</button>
+                    <button class="letter-button" onclick="toggleWordList('P')">P</button>
+                    <button class="letter-button" onclick="toggleWordList('Q')">Q</button>
+                    <button class="letter-button" onclick="toggleWordList('R')">R</button>
+                    <button class="letter-button" onclick="toggleWordList('S')">S</button>
+                    <button class="letter-button" onclick="toggleWordList('T')">T</button>
+                    <button class="letter-button" onclick="toggleWordList('U')">U</button>
+                    <button class="letter-button" onclick="toggleWordList('V')">V</button>
+                    <button class="letter-button" onclick="toggleWordList('W')">W</button>
+                    <button class="letter-button" onclick="toggleWordList('X')">X</button>
+                    <button class="letter-button" onclick="toggleWordList('Y')">Y</button>
+                    <button class="letter-button" onclick="toggleWordList('Z')">Z</button>
+                </div>
+                <!-- Lista de palabras para cada letra -->
+                <ul class="word-list" id="wordListA">
+                    <li class="word-list-item">Amar</li>
+                    <li class="word-list-item">Armar</li>
+                    <li class="word-list-item">Amor</li>
+                    <li class="word-list-item">Avión</li>
+                    <li class="word-list-item">Abrazo</li>
+                    <li class="word-list-item">Arma</li>
+                    <li class="word-list-item">Alma</li>
+                    <li class="word-list-item">Archipielago</li>
+                    <!-- Agrega más palabras según sea necesario -->
+                </ul>
+                <ul class="word-list" id="wordListB">
+                    <li class="word-list-item">Burro</li>
+                    <li class="word-list-item">Bastón</li>
+                    <li class="word-list-item">Basura</li>
+                    <li class="word-list-item">Barro</li>
+                    <li class="word-list-item">Barra</li>
+                    <li class="word-list-item">Bebé</li>
+                    <li class="word-list-item">Babel</li>
+                    <li class="word-list-item">Beber</li>
+                    <li class="word-list-item">Bastante</li>  
+                    <!-- Agrega más palabras según sea necesario -->
+                </ul>
+                <ul class="word-list" id="wordListC">
+                    <li class="word-list-item">Carro</li>
+                    <li class="word-list-item">Cachorro</li>
+                    <li class="word-list-item">Camión</li>
+                    <li class="word-list-item">Cara</li>
+                    <li class="word-list-item">Cabeza</li>
+                    <li class="word-list-item">Cañón</li>
+                    <li class="word-list-item">camisa</li>
+                    <li class="word-list-item">Cuidado</li>
+                    <li class="word-list-item">Comer</li>
+                </ul>
+                <ul class="word-list" id="wordListD">
+                    <li class="word-list-item">Domingo</li>
+                    <li class="word-list-item">Día</li>
+                    <li class="word-list-item">Dormir</li>
+                    <li class="word-list-item">Dedo</li>
+                    <li class="word-list-item">Dulce</li>
+                    <li class="word-list-item">Delfin</li>
+                    <li class="word-list-item">Ducha</li>
+                    <li class="word-list-item">Dado</li>
+                    <li class="word-list-item">Doctor</li>
+                </ul>
+                <ul class="word-list" id="wordListE">
+                    <li class="word-list-item">Estudiar</li>
+                    <li class="word-list-item">Extraterrestre</li>
+                    <li class="word-list-item">Elfo</li>
+                    <li class="word-list-item">Elefante</li>
+                    <li class="word-list-item">Escalera</li>
+                    <li class="word-list-item">Espejo</li>
+                    <li class="word-list-item">Escoba</li>
+                    <li class="word-list-item">Estrella</li>
+                    <li class="word-list-item">Ensalada</li>
+                </ul>
+                <ul class="word-list" id="wordListF">
+                    <li class="word-list-item">Fiesta</li>
+                    <li class="word-list-item">Foca</li>
+                    <li class="word-list-item">Fantasma</li>
+                    <li class="word-list-item">Fuente</li>
+                    <li class="word-list-item">Fosforo</li>
+                    <li class="word-list-item">Foco</li>
+                    <li class="word-list-item">Fogota</li>
+                    <li class="word-list-item">Futbol</li>
+                    <li class="word-list-item">Faro</li>
+                </ul>
+               <ul class="word-list" id="wordListG">
+                    <li class="word-list-item">Gato</li>
+                    <li class="word-list-item">Garra</li>
+                    <li class="word-list-item">Gorra</li>
+                    <li class="word-list-item">Gallo</li>
+                    <li class="word-list-item">Gallina</li>
+                    <li class="word-list-item">Gorila</li>
+                    <li class="word-list-item">Gordo</li>
+                    <li class="word-list-item">Gusano</li>
+                    <li class="word-list-item">Galleta</li>
+                </ul>
+                <ul class="word-list" id="wordListH">
+                    <li class="word-list-item">Helado</li>
+                    <li class="word-list-item">Hipopotamo</li>
+                    <li class="word-list-item">Hamburguesa</li>
+                    <li class="word-list-item">Helicoptero</li>
+                    <li class="word-list-item">Hada</li>
+                    <li class="word-list-item">Hielo</li>
+                    <li class="word-list-item">Hombre</li>
+                    <li class="word-list-item">Horno</li>
+                    <li class="word-list-item">Hoguera</li>
+                </ul>
+                <ul class="word-list" id="wordListI">
+                    <li class="word-list-item">Iglesia</li>
+                    <li class="word-list-item">Isla</li>
+                    <li class="word-list-item">Iglu</li>
+                    <li class="word-list-item">Idea</li>
+                    <li class="word-list-item">Imán</li>
+                    <li class="word-list-item">Impresora</li>
+                    <li class="word-list-item">Imagen</li>
+                    <li class="word-list-item">Izquierda</li>
+                    <li class="word-list-item">Igualdad</li>
+                </ul>
+                <ul class="word-list" id="wordListJ">
+                    <li class="word-list-item">Jirafa</li>
+                    <li class="word-list-item">Jarro</li>
+                    <li class="word-list-item">Joya</li>
+                    <li class="word-list-item">Jueves</li>
+                    <li class="word-list-item">Juego</li>
+                    <li class="word-list-item">Jabón</li>
+                    <li class="word-list-item">Júpiter</li>
+                    <li class="word-list-item">Jugo</li>
+                    <li class="word-list-item">Jinete</li>
+                </ul>
+                <ul class="word-list" id="wordListK">
+                    <li class="word-list-item">Kiosko</li>
+                    <li class="word-list-item">Koala</li>
+                    <li class="word-list-item">Karate</li>
+                    <li class="word-list-item">Kiwi </li>
+                    <li class="word-list-item">Kilo</li>
+                    <li class="word-list-item">Kimono</li>
+                </ul>
+                <ul class="word-list" id="wordListL">
+                    <li class="word-list-item">Lila</li>
+                    <li class="word-list-item">Leon</li>
+                    <li class="word-list-item">Leche</li>
+                    <li class="word-list-item">Loro</li>
+                </ul>
+                <ul class="word-list" id="wordListM">
+                    <li class="word-list-item">Mamá</li>
+                    <li class="word-list-item">Mañana</li>
+                    <li class="word-list-item">Miercoles</li>
+                    <li class="word-list-item">Martes</li>
+                    <li class="word-list-item">Miedo</li>
+                    <li class="word-list-item">Movemiento</li>
+                </ul> 
+                <ul class="word-list" id="wordListN">
+                    <li class="word-list-item">Niño</li>
+                    <li class="word-list-item">Nene</li>
+                    <li class="word-list-item">No</li>
+                    <li class="word-list-item">Noche</li>
+                    <li class="word-list-item">Nieve</li>
+                    <li class="word-list-item">Nosotros</li>
+                    <li class="word-list-item">Nadie</li>
+                </ul> 
+                <ul class="word-list" id="wordListO">
+                    <li class="word-list-item">Oso</li>
+                    <li class="word-list-item">Ola</li>
+                    <li class="word-list-item">Ojo</li>
+                    <li class="word-list-item">Ojos</li>
+                    <li class="word-list-item">Oriente</li>
+                </ul>
+                <ul class="word-list" id="wordListP">
+                    <li class="word-list-item">Papá</li>
+                    <li class="word-list-item">Pipa</li>
+                    <li class="word-list-item">Perro</li>
+                    <li class="word-list-item">Pomulo</li>
+                    <li class="word-list-item">Perdón</li>
+                </ul>
+                <ul class="word-list" id="wordListQ">
+                    <li class="word-list-item">Queso</li>
+                    <li class="word-list-item">Quimica</li>
+                    <li class="word-list-item">Quince</li>
+                    <li class="word-list-item">Quebrar</li>
+                </ul>
+                <ul class="word-list" id="wordListR">
+                    <li class="word-list-item">Raro</li>
+                    <li class="word-list-item">Rosa</li>
+                    <li class="word-list-item">Rostro</li>
+                    <li class="word-list-item">Ratón</li>
+                    <li class="word-list-item">Rata</li>
+                </ul>
+                <ul class="word-list" id="wordListS">
+                    <li class="word-list-item">Sol</li>
+                    <li class="word-list-item">Sapo</li>
+                    <li class="word-list-item">Sancocho</li>
+                    <li class="word-list-item">Siete</li>
+                </ul>
+                <ul class="word-list" id="wordListT">
+                    <li class="word-list-item">Tomate</li>
+                    <li class="word-list-item">Todos</li>
+                    <li class="word-list-item">Trato</li>
+                    <li class="word-list-item">Tronco</li>
+                </ul>
+                <ul class="word-list" id="wordListU">
+                    <li class="word-list-item">Ubicación</li>
+                    <li class="word-list-item">Uva</li>
+                    <li class="word-list-item">Unión</li>
+                    <li class="word-list-item">Unilateral</li>
+                </ul>
+                 <ul class="word-list" id="wordListV">
+                    <li class="word-list-item">Vista</li>
+                    <li class="word-list-item">Violento</li>
+                    <li class="word-list-item">Volver</li>
+                    <li class="word-list-item">Vamos</li>
+                </ul>
+                <ul class="word-list" id="wordListW">
+                    <li class="word-list-item">Wifi</li>
+                    <li class="word-list-item">Waterpolo</li>
+                    <li class="word-list-item">Wuafles</li>
+                    <li class="word-list-item">Wapiti</li>
+                </ul>
+                <ul class="word-list" id="wordListX">
+                    <li class="word-list-item">Xilofono</li>
+                    <li class="word-list-item">Xilografia</li>
+                    <li class="word-list-item">Xilema</li>
+                    <li class="word-list-item">Xenofobia</li>
+                </ul>
+                <ul class="word-list" id="wordListY">
+                    <li class="word-list-item">Yate</li>
+                    <li class="word-list-item">Yuca</li>
+                    <li class="word-list-item">Ya</li>
+                    <li class="word-list-item">Yelco</li>
+                </ul>
+                <ul class="word-list" id="wordListZ">
+                    <li class="word-list-item">Zorro</li>
+                    <li class="word-list-item">Zapato</li>
+                    <li class="word-list-item">Zapote</li>
+                    <li class="word-list-item">Zanahoria</li>
+                </ul>
+            </div>
+        </div>
+        <div class="level-content" id="spanishA2Content">
+
+            <!-- Contenido para el nivel A2 de español -->
+            <h2>Nivel A2</h2>
+            <p>En el nivel A2 de español, profundizaremos en temas básicos. ¡Vamos a aprender juntos!</p>
+        </div>
+        <!-- Repite esta estructura para cada nivel y idioma -->
+    </section>
+
+    <footer>
+        <p>&copy; 2024 Tu Plataforma Educativa. Todos los derechos reservados.</p>
+    </footer>
+
+    <script>
+        function toggleWordList(letter) {
+            // Oculta todas las listas de palabras
+            var allWordLists = document.querySelectorAll('.word-list');
+            allWordLists.forEach(function (list) {
+                list.style.display = 'none';
+            });
+
+            // Muestra la lista de palabras correspondiente a la letra actual
+            var wordList = document.getElementById('wordList' + letter);
+            if (wordList) {
+                wordList.style.display = 'block';
+         }
+        }
+        function toggleLanguageList() {
+            var languageList = document.querySelector('.language-list');
+            languageList.style.display = (languageList.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function toggleLevelsList(language) {
+            var levelsList = document.getElementById(language + 'Levels');
+            levelsList.style.display = (levelsList.style.display === 'block') ? 'none' : 'block';
+        }
+
+        function toggleLevelContent(language, level) {
+            // Oculta todos los contenidos de nivel
+            var allLevelContents = document.querySelectorAll('.level-content');
+            allLevelContents.forEach(function(content) {
+                content.style.display = 'none';
+            });
+
+            // Muestra el contenido del nivel seleccionado
+            var selectedLevelContent = document.getElementById(language + level + 'Content');
+            if (selectedLevelContent) {
+                selectedLevelContent.style.display = 'block';
+         
+function toggleWordList(letter) {
+            var wordList = document.getElementById('wordList' + letter);
+            wordList.style.display = (wordList.style.display === 'block') ? 'none' : 'block';
+           }
+        }
+       }
+    </script>
+</body>
+</html>
+
